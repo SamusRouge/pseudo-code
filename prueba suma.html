@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prueba suma inputs</title>
+    </head>
+    <body>
+    <button onclick="crearinputsnumericos()">crear inputs numericos</button>
+    <button onclick="realizarsuma()"> Realizar suma</button>
+    
+    <script>
+        function crearinputsnumericos() {
+            var inputElement1 = document.createElement("input");
+            inputElement1.type= "number";
+            inputElement1.id="inputNumero1";
+            inputElement1.placeholder = "ingrese el primer numero";
+
+            var inputElement2 = document.createElement("input");
+            inputElement2.type= "number";
+            inputElement2.id = "inputNumero2";
+            inputElement2.placeholder= "ingrese el segundo numero";
+
+            document.body.appendChild(inputElement1);
+            document.body.appendChild(inputElement2);
+        }
+        function realizarsuma(){
+            var inputElement1 = document.getElementById("inputNumero1");
+            var inputElement2 = document.getElementById("inputNumero2");
+            var resultadoElement = document.getElementById("resultado")
+
+            if ( inputElement1 && inputElement2) {
+                var numero1 = Number(inputElement1.value);
+                var numero2 = Number(inputElement2.value);
+
+                var resultado = numero1 + numero2;
+                resultadoElement.textContent = "Resultado de la suma  " + resultado;
+            } else {
+                console.log ("no se han insertado valores")
+            }
+        }
+    </script>
+    <p id="resultado"></p>
+
+    </body>
+</html>

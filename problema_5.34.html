@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Problema 5.34 Matematicas para la computacion</title>
+    </head>
+    <body>
+        <button  onclick="crearInputsNumericos()">insertar valor de los lados</button>
+        <button onclick="realizarSuma()"> realizar perimetro y area </button>
+        
+        <script>
+            function crearInputsNumericos() {
+                var inputElement1= document.createElement("input");
+                inputElement1.type = "number";
+                inputElement1.id = "inputNumero1";
+                inputElement1.placeholder= "inserte lado 1";
+
+                var inputElement2= document.createElement("input");
+                inputElement2.type = "number";
+                inputElement2.id = "inputNumero2";
+                inputElement2.placeholder= "inserte lado 2";
+
+                var inputElement3= document.createElement("input");
+                inputElement3.type = "number";
+                inputElement3.id = "inputNumero3";
+                inputElement3.placeholder= "inserte lado 3";
+
+                document.body.appendChild (inputElement1);
+                document.body.appendChild (inputElement2);
+                document.body.appendChild (inputElement3);
+            }
+            function realizarSuma() {
+                var inputElement1 = document.getElementById("inputNumero1");
+                var inputElement2 = document.getElementById("inputNumero2");
+                var inputElement3 = document.getElementById("inputNumero3");
+                var resultadoElement = document.getElementById ("resultado");
+
+                if (inputElement1 && inputElement2 && inputElement3) {
+                    var numero1 = Number(inputElement1.value);
+                    var numero2 = Number(inputElement2.value);
+                    var numero3 = Number(inputElement3.value);
+
+                    var p = numero1 + numero2 + numero3;
+                    var s = p/2
+                    var area = (s*(s-numero1)*(s-numero2)*(s-numero3))**(1/2)
+                    resultadoElement.textContent = "resultado del perimetro: " + p + " resultado del area " + area;
+                } else{
+                    console.log( "no se han insertado numeros");
+                }
+            }
+        </script>
+        <p id="resultado"></p>
+    </body>
+</html>
